@@ -1,3 +1,32 @@
 [
-  {}
+  [
+    {
+      "orientation": [
+        "R",
+        "B"
+      ],
+      "x": 0,
+      "y": 0,
+      "type": "Wall",
+      "name": "wall"
+    },
+    {
+      "orientation": [
+        "R"
+      ],
+      "x": 0,
+      "y": 0,
+      "type": "Wall",
+      "name": "wall"
+    },
+    {
+      "orientation": [
+        "R"
+      ],
+      "x": 0,
+      "y": 0,
+      "type": "Wall",
+      "name": "wall"
+    }
+  ]
 ]
