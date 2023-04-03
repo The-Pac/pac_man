@@ -12,7 +12,7 @@
 
     </div>
     <div id="map-container">
-
+      <Map v-model:map_cells="map_cells" :map_cells="map_cells"/>
     </div>
     <div id="items-container">
       <div id="lifes-container">
@@ -31,9 +31,11 @@
 import {defineComponent} from "vue";
 import {invoke} from "@tauri-apps/api";
 import Cell from "../app/models/Cell";
+import Map from "../components/Map.vue";
 
 export default defineComponent({
   name: "PacMan",
+  components: {Map},
   data() {
     return {
       scores: Number(0),

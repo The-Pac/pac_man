@@ -1,5 +1,10 @@
 <template>
   <div data-tauri-drag-region class="titlebar">
+    <div class="titlebar-button">
+      <router-link class="link-redirect" :to="map_edit.path">
+        <v-icon name="fa-edit" scale="1" fill="black"/>
+      </router-link>
+    </div>
     <div class="titlebar-button" id="titlebar-minimize">
       <v-icon name="fa-regular-window-minimize" scale="1"/>
     </div>
@@ -9,6 +14,7 @@
     <div class="titlebar-button" id="titlebar-close">
       <v-icon name="co-exit-to-app" scale="1"/>
     </div>
+
   </div>
 </template>
 
@@ -16,9 +22,15 @@
 import {appWindow} from "@tauri-apps/api/window";
 import {defineComponent} from "vue";
 import {invoke} from "@tauri-apps/api";
+import {map_edit} from "../app/Router";
 
 export default defineComponent({
   name: "CustomBar",
+  computed: {
+    map_edit() {
+      return map_edit
+    }
+  },
   mounted() {
     let titlebar_minimize = document.getElementById('titlebar-minimize');
     let titlebar_maximize = document.getElementById('titlebar-maximize');

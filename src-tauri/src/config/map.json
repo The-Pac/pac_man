@@ -7,8 +7,7 @@
       ],
       "x": 0,
       "y": 0,
-      "type": "Wall",
-      "name": "wall"
+      "type": "WALL"
     },
     {
       "orientation": [
@@ -16,8 +15,7 @@
       ],
       "x": 0,
       "y": 0,
-      "type": "Wall",
-      "name": "wall"
+      "type": "WALL"
     },
     {
       "orientation": [
@@ -25,8 +23,7 @@
       ],
       "x": 0,
       "y": 0,
-      "type": "Wall",
-      "name": "wall"
+      "type": "WALL"
     }
   ]
 ]
