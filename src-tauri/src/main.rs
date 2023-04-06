@@ -7,7 +7,7 @@ mod models;
 use log::{error, info, LevelFilter};
 use simple_logger::SimpleLogger;
 use tauri::{generate_context, generate_handler};
-use crate::commands::app_commands::{get_map, new_map};
+use crate::commands::app_commands::{get_map, save_map, new_map};
 
 fn main() {
     SimpleLogger::new().with_level(LevelFilter::Info).with_colors(true).init().unwrap();
@@ -15,7 +15,8 @@ fn main() {
     let tauri = tauri::Builder::default();
     match tauri.invoke_handler(generate_handler![
         new_map,
-        get_map
+        get_map,
+        save_map
         ])
         .run(generate_context!()) {
         Ok(_) => {
