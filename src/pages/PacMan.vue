@@ -12,11 +12,12 @@
 
     </div>
     <div id="map-container">
-      <Map v-model:map_cells="map_cells" :map_cells="map_cells"/>
+      <Map v-model:map_cells="map_cells" :map_cells="map_cells" :on_edit="false"/>
     </div>
     <div id="items-container">
       <div id="lifes-container">
-        <img class="pac-man-lifes" v-for="(life,index) in lifes" src="src/assets/img/pacman-open-mouth.svg" :key="index"
+        <img class="pac-man-lifes" v-for="(life,index) in lifes"
+             src="src/assets/img/pacman-open-mouth.svg" :key="index"
              alt="pac-man life"/>
       </div>
       <div id="objects-container">
@@ -41,7 +42,7 @@ export default defineComponent({
       scores: Number(0),
       lifes: Number(3),
       objects: Number(0),
-      map_cells: Array<Cell>()
+      map_cells: Array<Array<Cell>>()
     }
   },
   mounted() {
@@ -80,10 +81,10 @@ export default defineComponent({
   }
 
   #map-container {
-    width: 100%;
+    width: 70%;
     height: 70%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
   }
 

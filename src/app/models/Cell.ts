@@ -1,12 +1,12 @@
 export default class Cell {
-  orientation: Array<string>
+  orientations: Array<Orientation>
   x: number
   y: number
   block_group: BlockGroup
 
 
-  constructor(orientation: Array<string>, x: number, y: number, block_group: BlockGroup) {
-    this.orientation = orientation;
+  constructor(orientations: Array<Orientation>, x: number, y: number, block_group: BlockGroup) {
+    this.orientations = orientations;
     this.x = x;
     this.y = y;
     this.block_group = block_group;
@@ -15,9 +15,16 @@ export default class Cell {
 }
 
 export enum BlockGroup {
-  VOID,
-  WALL,
-  DOT,
-  SUPERDOT,
-  OBJECT,
+  VOID = "VOID",
+  WALL = "WALL",
+  DOT = "DOT",
+  SUPERDOT = "SUPERDOT",
+  OBJECT = "OBJECT",
+}
+
+export enum Orientation {
+  LEFT = "LEFT",
+  RIGHT = "RIGHT",
+  BOTTOM = "BOTTOM",
+  TOP = "TOP",
 }
