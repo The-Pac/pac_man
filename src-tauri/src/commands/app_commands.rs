@@ -4,8 +4,8 @@ use log::error;
 use tauri::command;
 use crate::models::cell::{BlockGroup, Cell};
 
-const MAP_HEIGHT: i32 = 31;
-const MAP_WIDTH: i32 = 28;
+const MAP_HEIGHT: usize = 31;
+const MAP_WIDTH: usize = 28;
 
 #[command]
 pub fn get_map() -> Vec<Vec<Cell>> {
@@ -21,21 +21,10 @@ pub fn get_map() -> Vec<Vec<Cell>> {
 
 #[command]
 pub fn new_map() -> Vec<Vec<Cell>> {
-    let mut map: Vec<Vec<Cell>> = vec![];
-
-    for i in 0..MAP_HEIGHT {
-        let mut row = vec![];
-        for j in 0..MAP_WIDTH {
-            row.push(Cell {
-                orientations: vec![],
-                x: j,
-                y: i,
-                block_group: BlockGroup::VOID,
-            })
-        }
-        map.push(row);
-    }
-    map
+    vec![vec![Cell {
+        orientations: vec![],
+        block_group: BlockGroup::VOID,
+    }; MAP_WIDTH]; MAP_HEIGHT]
 }
 
 #[command]

@@ -12,14 +12,14 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from "vue";
+import {defineComponent} from "vue";
 import Cell, {BlockGroup, Orientation} from "../app/models/Cell";
 
 export default defineComponent({
   name: "Map",
   props: {
     map_cells: {
-      type: Array<Array<Cell>>,
+      type: Array<Array<Cell>>
     },
     on_edit: {
       type: Boolean
@@ -106,6 +106,7 @@ export default defineComponent({
     }
 
     .wall {
+      background: blue;
 
       .left {
 

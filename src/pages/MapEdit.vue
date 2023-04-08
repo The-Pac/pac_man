@@ -48,7 +48,7 @@ export default defineComponent({
         BlockGroup.SUPERDOT,
     )
 
-    invoke('new_map').then((response: any) => {
+    invoke('get_map').then((response: any) => {
       this.map_cells = response
     }).catch(() => {
 
