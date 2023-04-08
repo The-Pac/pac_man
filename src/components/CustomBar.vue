@@ -1,6 +1,11 @@
 <template>
   <div data-tauri-drag-region class="titlebar">
     <div class="titlebar-button">
+      <router-link class="link-redirect" :to="home.path">
+        <v-icon name="fa-home" scale="1" fill="black"/>
+      </router-link>
+    </div>
+    <div class="titlebar-button">
       <router-link class="link-redirect" :to="map_edit.path">
         <v-icon name="fa-edit" scale="1" fill="black"/>
       </router-link>
@@ -22,11 +27,14 @@
 import {appWindow} from "@tauri-apps/api/window";
 import {defineComponent} from "vue";
 import {invoke} from "@tauri-apps/api";
-import {map_edit} from "../app/Router";
+import {home, map_edit} from "../app/Router";
 
 export default defineComponent({
   name: "CustomBar",
   computed: {
+    home() {
+      return home
+    },
     map_edit() {
       return map_edit
     }

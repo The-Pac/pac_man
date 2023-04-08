@@ -21,10 +21,7 @@ pub fn get_map() -> Vec<Vec<Cell>> {
 
 #[command]
 pub fn new_map() -> Vec<Vec<Cell>> {
-    vec![vec![Cell {
-        orientations: vec![],
-        block_group: BlockGroup::VOID,
-    }; MAP_WIDTH]; MAP_HEIGHT]
+    vec![vec![Cell { orientations: vec![], block_group: BlockGroup::VOID }; MAP_WIDTH]; MAP_HEIGHT]
 }
 
 #[command]

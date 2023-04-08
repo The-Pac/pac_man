@@ -1,12 +1,12 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Deserialize, Serialize)]
+#[derive(Deserialize, Serialize, Clone)]
 pub struct Cell {
     pub orientations: Vec<Orientation>,
     pub block_group: BlockGroup,
 }
 
-#[derive(Deserialize, Serialize)]
+#[derive(Deserialize, Serialize, Clone)]
 pub enum BlockGroup {
     VOID,
     WALL,
@@ -15,7 +15,7 @@ pub enum BlockGroup {
     OBJECT,
 }
 
-#[derive(Deserialize, Serialize)]
+#[derive(Deserialize, Serialize, Clone)]
 pub enum Orientation {
     LEFT,
     RIGHT,

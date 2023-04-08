@@ -1,7 +1,7 @@
 <template>
   <div id="map-container">
-    <div v-for="(rows,index_rows) in map_cells">
-      <div :class="this.on_edit ? 'block-edit-container' : 'block-container'"
+    <div class="column" v-for="(rows,index_rows) in map_cells">
+      <div :class="this.on_edit ? 'row-edit' : 'row'"
            v-for="(cell ,index_cell) in rows"
            @click="on_click(index_rows,index_cell)">
         <div class="block" :class="get_block(cell)">
@@ -85,66 +85,71 @@ export default defineComponent({
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
-
-  .block-container, .block-edit-container {
-    background-color: rgba(0, 0, 0, 0.5);
+  .column {
     display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    height: 2dvh;
-    width: 2dvh;
-    position: relative;
 
-    .block {
-      height: 100%;
-      width: 100%;
+    .row, .row-edit {
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      height: 2dvh;
+      width: 2dvh;
       position: relative;
-    }
 
-    .wall {
-      background: blue;
-
-      .left {
-
+      .block {
+        height: 100%;
+        width: 100%;
+        position: relative;
       }
 
-      .right {
+      .wall {
+        background: blue;
+
+        .left {
+
+        }
+
+        .right {
+        }
+
+        .bottom {
+        }
+
+        .top {
+        }
       }
 
-      .bottom {
+      .dot, .super-dot {
+        border-radius: 5px;
       }
 
-      .top {
+      .dot {
+        height: 25%;
+        width: 25%;
+        background-color: yellow;
+      }
+
+      .super-dot {
+        height: 50%;
+        width: 50%;
+        background-color: orange;
+      }
+
+      .object {
+
       }
     }
 
-    .dot, .super-dot {
-      border-radius: 5px;
+    .row-edit {
+      border: 1px solid white;
     }
-
-    .dot {
-      height: 25%;
-      width: 25%;
-      background-color: yellow;
-    }
-
-    .super-dot {
-      height: 50%;
-      width: 50%;
-      background-color: orange;
-    }
-
-    .object {
-
-    }
-  }
-
-  .block-edit-container {
-    border: 1px solid white;
   }
 
 
